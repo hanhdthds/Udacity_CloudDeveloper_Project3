@@ -10,9 +10,9 @@ aws eks update-kubeconfig --region us-east-1 --name kubeprj3
 # API deploy 
 
 # Create or apply environment variable files 
-kubectl apply -f ./configuarations/aws-secret.yaml
-kubectl apply -f ./configuarations/env-secret.yaml
-kubectl apply -f ./configuarations/env-configmap.yaml
+kubectl apply -f ./configurations/aws-secret.yaml
+kubectl apply -f ./configurations/env-secret.yaml
+kubectl apply -f ./configurations/env-configmap.yaml
 
 # create or apply deployment files 
 kubectl apply -f ./configurations/backend-feed-deployment.yaml
@@ -31,8 +31,14 @@ kubectl get deployments
 ## Create a Service object that exposes the frontend deployment
 ## The command below will ceates an external load balancer and assigns a fixed, external IP to the Service.
 kubectl expose deployment frontend --type=LoadBalancer --name=publicfrontend
-kubectl expose deployment reverseproxy --type=LoadBalancer --name=reverseproxy
+kubectl expose deployment reverseproxy --type=LoadBalancer --name=publicreverseproxy
 ## Repeat the process for the *reverseproxy* deployment. 
 ## Check name, ClusterIP, and External IP of all deployments
 kubectl get services 
 kubectl get pods # It should show the STATUS as Running
+
+
+Kubernetes kubectl get pods output
+Kubernetes kubectl describe services output
+Kubernetes kubectl describe hpa output
+Kubernetes kubectl logs <your pod name> output
