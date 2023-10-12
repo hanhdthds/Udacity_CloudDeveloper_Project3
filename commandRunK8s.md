@@ -42,3 +42,19 @@ Kubernetes kubectl get pods output
 Kubernetes kubectl describe services output
 Kubernetes kubectl describe hpa output
 Kubernetes kubectl logs <your pod name> output
+
+kubectl get pod backend-user-6d5f7f994-txb86 --output=yaml
+kubectl get pod backend-feed-64c979f764-ccpzf --output=yaml
+
+kubectl logs backend-feed-64c979f764-ccpzf
+kubectl logs backend-user-6d5f7f994-txb86
+
+kubectl describe pod backend-feed-64c979f764-ccpzf
+kubectl describe pod backend-user-6d5f7f994-txb86
+
+kubectl exec --stdin --tty backend-feed-64c979f764-ccpzf -- /bin/bash
+kubectl exec --stdin --tty backend-user-6d5f7f994-txb86 -- /bin/bash
+
+printenv | grep POST
+
+
