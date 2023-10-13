@@ -17,6 +17,8 @@ spec:
       containers:
       - image: 18521358/udagram-api-feed:latest
         name: backend-feed
+        ports:
+        - containerPort: 8080
         imagePullPolicy: Always  
         resources:
           requests:

@@ -4,11 +4,9 @@ data:
   AWS_BUCKET: prj3-udacity
   AWS_PROFILE: default
   AWS_REGION: us-east-1
-  JWT_SECRET: helloworld
+  JWT_SECRET: testing
   POSTGRES_DB: postgres
-  POSTGRES_HOST: cdr.cckvo40lq7km.us-east-1.rds.amazonaws.com
-  POSTGRES_USERNAME: honghanh
-  POSTGRES_PASSWORD: honghanh
+  POSTGRES_HOST: cdr.cggmn5gd5quo.us-east-1.rds.amazonaws.com
   URL: http://localhost:8100  
 metadata:
   name: env-config

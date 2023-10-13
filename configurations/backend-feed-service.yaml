@@ -4,10 +4,16 @@ metadata:
   labels:
     service: backend-feed
   name: backend-feed
+  namespace: default
 spec:
   ports:
   - name: "8080"
     port: 8080
+    protocol: TCP
     targetPort: 8080
   selector:
     service: backend-feed
+    sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

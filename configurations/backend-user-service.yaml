@@ -4,10 +4,16 @@ metadata:
   labels:
     service: backend-user
   name: backend-user
+  namespace: default
 spec:
   ports:
   - name: "8080"
     port: 8080
+    protocol: TCP
     targetPort: 8080
   selector:
     service: backend-user
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

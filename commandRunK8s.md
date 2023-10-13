@@ -1,7 +1,7 @@
 # Run front end
 export NODE_OPTIONS=--openssl-legacy-provider
 
-aws eks create-cluster --region us-east-1 --name kubeprj3 --role-arn arn:aws:iam::670020652061:role/EKSClusterRole --resources-vpc-config subnetIds=subnet-0f4878051272ab1da,subnet-08c08b6f86bb59d50,subnet-0a620fca33bc682cb,subnet-0a02b1f23c300bb61,subnet-0f11be55bffb37187
+aws eks create-cluster --region us-east-1 --name kubeprj3 --role-arn arn:aws:iam::298760192985:role/EKSClusterRole --resources-vpc-config subnetIds=subnet-0e54f2ef99de44af3,subnet-076698d2ade266820,subnet-0a4e2ab677183195d,subnet-01fe8a8a56510a0e3
 
 aws eks describe-cluster --region us-east-1 --name kubeprj3 --query "cluster.status"
 
@@ -58,3 +58,9 @@ kubectl exec --stdin --tty backend-user-6d5f7f994-txb86 -- /bin/bash
 printenv | grep POST
 
 
+# remove 
+kubectl delete deployment backend-feed
+kubectl delete deployment backend-user
+
+ kubectl delete svc backend-user 
+ kubectl delete svc backend-feed 
