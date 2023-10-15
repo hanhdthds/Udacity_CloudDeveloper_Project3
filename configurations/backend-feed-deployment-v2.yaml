@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: backend-feed
+  name: backend-feed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-feed
+  template:
+    metadata:
+      labels:
+        app: backend-feed
+    spec:
+      containers:
+      - name: backend-feed
+        image: 18521358/udagram-api-feed
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: Always  
+        livenessProbe:
+          httpGet:
+            path: /feed
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 3               

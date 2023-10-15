@@ -15,11 +15,11 @@ spec:
         app: backend-user
     spec:
       containers:
-      - image: 18521358/udagram-api-user:latest
-        name: backend-user 
+      - name: backend-user 
+        image: 18521358/udagram-api-user
         ports:
         - containerPort: 8080
-        imagePullPolicy: Always  
+        imagePullPolicy: Always     
         resources:
           requests:
             memory: "64Mi"

@@ -15,20 +15,20 @@ To help review your infrastructure, please include the following screenshots in 
 ```bash
 kubectl get pods
 ```
-![Alt text](Get-deployment.png)
-![Alt text](Get-pods.png)
+![Alt text](image.png)
 * To verify Kubernetes services are properly set up
 ```bash
 kubectl describe services
 ```
-![Alt text](Descibe-service.png)
+![Alt text](image-1.png)
+![Alt text](image-2.png)
 * To verify that you have horizontal scaling set against CPU usage
 ```bash
 kubectl describe hpa
 ```
-![Alt text](describe-hpa.png)
+![Alt text](image-4.png)
 * To verify that you have set up logging with a backend application
 ```bash
 kubectl logs {pod_name}
 ```
-![Alt text](Log-frontend.png)
+![Alt text](image-3.png)

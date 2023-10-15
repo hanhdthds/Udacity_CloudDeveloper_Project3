@@ -26,6 +26,10 @@ kubectl apply -f ./configurations/backend-user-service.yaml
 kubectl apply -f ./configurations/frontend-service.yaml
 kubectl apply -f ./configurations/reverseproxy-service.yaml
 
+## add env
+kubectl set env deployment backend-feed POSTGRES_USERNAME="honghanh" POSTGRES_PASSWORD="honghanh" 
+kubectl set env deployment backend-user POSTGRES_USERNAME="honghanh" POSTGRES_PASSWORD="honghanh" 
+
 ## Check the deployment names and their pod status
 kubectl get deployments
 ## Create a Service object that exposes the frontend deployment
@@ -59,8 +63,24 @@ printenv | grep POST
 
 
 # remove 
-kubectl delete deployment backend-feed
+kubectl delete deployment reverseproxy
+kubectl delete service reverseproxy
 kubectl delete deployment backend-user
 
  kubectl delete svc backend-user 
  kubectl delete svc backend-feed 
+
+## check end point
+kubectl get ep -o wide
+
+
+<!-- AWS_BUCKET="prj3-udacity" AWS_PROFILE="honghanh" AWS_REGION="us-east-1" POSTGRES_DB="postgres" POSTGRES_HOST="cdr.cggmn5gd5quo.us-east-1.rds.amazonaws.com" -->
+
+kubectl port-forward backend-user-76dcc5944f-mjgbn 8080:8080
+
+curl http://backend-feed:8080/api/v0/feed
+curl http://reverseproxy:8080/api/v0/feed
+
+curl http://reverseproxy:8080/api/v0/users/
+
+kubectl rollout restart deployment reverseproxy
